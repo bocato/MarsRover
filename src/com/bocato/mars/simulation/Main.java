@@ -1,5 +1,5 @@
 
-package com.bocato.mars.simmulation;
+package com.bocato.mars.simulation;
 
 import java.util.Scanner;
 
