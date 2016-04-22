@@ -9,12 +9,12 @@ import com.bocato.mars.model.Command;
 import com.bocato.mars.model.Rover;
 import com.bocato.mars.model.Command.*;
 
-public class CommandParser {
+public class CommandController {
 
-	private static CommandParser instance =  null;
+	private static CommandController instance =  null;
 	private static  HashMap<String, Command> possibleCommands;
 	
-	private CommandParser(){}
+	private CommandController(){}
 	
 	private static void generatePossibleCommands(){
 		possibleCommands = new HashMap<String, Command>();
@@ -23,10 +23,10 @@ public class CommandParser {
 		possibleCommands.put("M", new Move());
 	}
 	
-	public static CommandParser getInstance(){
+	public static CommandController getInstance(){
 		if(instance ==  null){
 			generatePossibleCommands();
-			instance = new CommandParser();
+			instance = new CommandController();
 		}
 		return instance;
 	}

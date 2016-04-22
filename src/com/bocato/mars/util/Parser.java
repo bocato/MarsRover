@@ -4,6 +4,7 @@ import java.util.HashMap;
 
 import java.util.Map;
 
+import com.bocato.mars.exception.ParserException;
 import com.bocato.mars.model.Direction;
 import com.bocato.mars.model.Location;
 
@@ -44,7 +45,7 @@ public class Parser {
 
 		String inputArray[] = inputs.split(" ");
 		if (inputArray.length != 3)
-			throw new RuntimeException("A entrada de dados precisa ser da forma: 'posicao_x posicao_y coordenada'\nOnde:\nposicao_x = inteiro\nposicao_y = inteiro\ncoordenada = N, S, W, E\nExemplo: 1 2 N");
+			throw new ParserException("A entrada de dados precisa ser da forma: 'posicao_x posicao_y coordenada'\nOnde:\nposicao_x = inteiro\nposicao_y = inteiro\ncoordenada = N, S, W, E\nExemplo: 1 2 N");
 		int posX = Integer.valueOf(inputArray[0]).intValue();
 		int posY = Integer.valueOf(inputArray[1]).intValue();
 
@@ -52,7 +53,7 @@ public class Parser {
 		location.setPosY(posY);
 
 		if (!DIRECTION_STRING_TO_INT.containsKey(inputArray[2].toUpperCase())) {
-			throw new RuntimeException("Direcao invalida.");
+			throw new ParserException("Direcao invalida.");
 		} else {
 			int direction = ((Integer) DIRECTION_STRING_TO_INT.get(inputArray[2].toUpperCase())).intValue();
 			location.setDirection(direction);

@@ -1,7 +1,7 @@
 
 package com.bocato.mars.model;
 
-import com.bocato.mars.util.CommandParser;
+import com.bocato.mars.util.CommandController;
 import com.bocato.mars.util.Parser;
 
 /**
@@ -19,7 +19,7 @@ public class Rover {
 
 	public String executeCommand(String commands) {
 		for (char c : commands.toUpperCase().toCharArray()) {
-			CommandParser.getInstance().executeCommand(c, this);
+			CommandController.getInstance().executeCommand(c, this);
 		}
 		return Parser.locationToString(location);
 	}
